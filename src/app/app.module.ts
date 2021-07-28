@@ -12,6 +12,7 @@ import { SupplierListComponent } from './components/supplier-list/supplier-list.
 import { SupplierComponent } from './components/supplier/supplier.component';
 import { AnonymizePipe } from './anonymize.pipe';
 import {FormsModule} from '@angular/forms';
+import { ThemeDirective } from './theme.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import {FormsModule} from '@angular/forms';
     NocarriagePipe,
     SupplierListComponent,
     SupplierComponent,
-    AnonymizePipe
+    AnonymizePipe,
+    ThemeDirective
   ],
   imports: [
     BrowserModule,

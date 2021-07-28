@@ -28,4 +28,7 @@ export class ProductListComponent implements OnInit {
     return this.products.filter( p => p.name.includes(this.filterStr))
   }
 
+  selectProduct(prod: Product) {
+    this.selectedProduct = prod;
+  }
 }
