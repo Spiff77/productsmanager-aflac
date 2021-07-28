@@ -8,17 +8,24 @@ import {Product} from '../../model/Product';
 })
 export class ProductListComponent implements OnInit {
 
-  p1 = new Product(1, 'The beatles', 'cool album', 'Music', 40)
-  p2 = new Product(2, '1984', 'cool book', 'Book', 40)
+  products = [
+    new Product(1, 'The beatles', 'cool album', 'Music', 40),
+    new Product(2, '1984', 'cool book', 'Book', 40)
+  ]
+
+  filterStr = ''
 
   selectedProduct: Product | undefined;
+  desc = 'Lorem \n ipsum dolor \n si \nt amet, consectetur adipisicing elit. Assumenda cum et magnam quasi vero? Dolorum expedita, sit! A, animi corporis dolore fugit, harum maiores, omnis pariatur porro quidem quos sequi?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda cum et magnam quasi vero? Dolorum expedita, sit! A, animi corporis dolore fugit, harum maiores, omnis pariatur porro quidem quos sequi?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda cum et magnam quasi vero? Dolorum expedita, sit! A, animi corporis dolore fugit, harum maiores, omnis pariatur porro quidem quos sequi?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda cum et magnam quasi vero? Dolorum expedita, sit! A, animi corporis dolore fugit, harum maiores, omnis pariatur porro quidem quos sequi?';
 
   constructor() { }
 
   ngOnInit(): void {
+    // Ajax request
   }
 
-  receiveProduct(prod: Product): void {
-    this.selectedProduct = prod;
+  filteredProduct(): Product[] {
+    return this.products.filter( p => p.name.includes(this.filterStr))
   }
+
 }

@@ -1,4 +1,3 @@
 <h3>Product List</h3>
-<p [style.visibility]="selectedProduct ? 'visible' : 'hidden'"><span (click)="selectedProduct = undefined" class="pointer">[X]</span> &nbsp; You have selected: {{selectedProduct?.name}} ({{selectedProduct?.id}})</p>
-<app-product [product]="p1" (out)="receiveProduct($event)"></app-product>
-<app-product [product]="p2" (out)="receiveProduct($event)"></app-product>
+<input [(ngModel)]="filterStr">
+<app-product *ngFor="let p of filteredProduct()" [product]="p"></app-product>
