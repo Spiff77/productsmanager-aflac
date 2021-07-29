@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from '../../model/Product';
+import {ProductService} from '../../product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -8,20 +9,17 @@ import {Product} from '../../model/Product';
 })
 export class ProductListComponent implements OnInit {
 
-  products = [
-    new Product(1, 'The beatles', 'cool album', 'Music', 40),
-    new Product(2, '1984', 'cool book', 'Book', 40)
-  ]
+  products: Product[] = []
 
   filterStr = ''
 
   selectedProduct: Product | undefined;
-  desc = 'Lorem \n ipsum dolor \n si \nt amet, consectetur adipisicing elit. Assumenda cum et magnam quasi vero? Dolorum expedita, sit! A, animi corporis dolore fugit, harum maiores, omnis pariatur porro quidem quos sequi?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda cum et magnam quasi vero? Dolorum expedita, sit! A, animi corporis dolore fugit, harum maiores, omnis pariatur porro quidem quos sequi?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda cum et magnam quasi vero? Dolorum expedita, sit! A, animi corporis dolore fugit, harum maiores, omnis pariatur porro quidem quos sequi?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda cum et magnam quasi vero? Dolorum expedita, sit! A, animi corporis dolore fugit, harum maiores, omnis pariatur porro quidem quos sequi?';
 
-  constructor() { }
+  constructor(private ps: ProductService) { }
 
   ngOnInit(): void {
-    // Ajax request
+    this.products = this.ps.findAll();
+    this.ps.addOne(new Product(3, 'Anthrax', 'cool album to listen', 'Music', 20))
   }
 
   filteredProduct(): Product[] {
