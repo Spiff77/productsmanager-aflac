@@ -20,4 +20,5 @@ export class ProductService {
   addOne(prod: Product): void {
     this.products.push(prod)
   }
+
 }

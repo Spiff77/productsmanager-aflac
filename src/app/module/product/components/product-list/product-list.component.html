@@ -1,0 +1,4 @@
+<h3>Product List</h3>
+<input [(ngModel)]="filterStr">
+<app-product *ngFor="let p of filteredProduct()" [product]="p" (out)="selectProduct($event)"></app-product>
+<div *ngIf="filteredProduct().length === 0">No Products, check your filters</div>

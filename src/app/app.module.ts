@@ -3,31 +3,37 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
-import { ProductComponent } from './components/product/product.component';
 import { registerLocaleData } from '@angular/common';
 import localfr from '@angular/common/locales/fr';
 import { NocarriagePipe } from './nocarriage.pipe';
-import { SupplierListComponent } from './components/supplier-list/supplier-list.component';
-import { SupplierComponent } from './components/supplier/supplier.component';
-import { AnonymizePipe } from './anonymize.pipe';
-import {FormsModule} from '@angular/forms';
-import { ThemeDirective } from './theme.directive';
+import { SupplierListComponent } from './module/supplier/components/supplier-list/supplier-list.component';
+import { SupplierComponent } from './module/supplier/components/supplier/supplier.component';
+import { AnonymizePipe } from './module/supplier/pipes/anonymize.pipe';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ThemeDirective } from './module/product/directive/theme.directive';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterModule, Routes} from '@angular/router';
+import {SupplierDashboardComponent} from './module/supplier/components/supplier-dashboard/supplier-dashboard.component';
+import {ProductModule} from './module/product/product.module';
+import {SupplierModule} from './module/supplier/supplier.module';
+
+const routes: Routes = [
+  {path: '', redirectTo: 'products', pathMatch: 'full'},
+]
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    ProductListComponent,
-    ProductComponent,
     NocarriagePipe,
-    SupplierListComponent,
-    SupplierComponent,
-    AnonymizePipe,
-    ThemeDirective
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes),
+    ProductModule,
+    SupplierModule
   ],
   providers: [ { provide: LOCALE_ID, useValue: 'fr-Fr' } ],
   bootstrap: [AppComponent]

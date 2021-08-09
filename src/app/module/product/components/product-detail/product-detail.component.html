@@ -1,0 +1,13 @@
+<h1>Product: {{product.name}} ({{product.id}})</h1>
+<ul>
+  <li>{{product.description}}</li>
+  <li>{{product.category}}</li>
+</ul>
+<button (click)="displayDeleteBox = true">Delete</button>
+<div *ngIf="displayDeleteBox">
+  Are you sure you want to delete the element {{product.name}} ?
+  <ul>
+    <li class="link" (click)="delete()">yes</li>
+    <li class="link" (click)="displayDeleteBox = false">no</li>
+  </ul>
+</div>

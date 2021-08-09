@@ -1,5 +1,0 @@
-<h3>Product List</h3>
-<div *ngIf="selectedProduct" appTheme="dark"> <span (click)="selectedProduct = undefined">[X]</span> You have selected: {{selectedProduct?.name}} ({{selectedProduct?.id}})</div>
-<input [(ngModel)]="filterStr">
-<app-product *ngFor="let p of filteredProduct()" [product]="p" (out)="selectProduct($event)"></app-product>
-<div *ngIf="filteredProduct().length === 0">No Products, check your filters</div>

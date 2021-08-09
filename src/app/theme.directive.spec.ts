@@ -1,4 +1,4 @@
-import { ThemeDirective } from './theme.directive';
+import { ThemeDirective } from './module/product/directive/theme.directive';
 
 describe('ThemeDirective', () => {
   it('should create an instance', () => {
