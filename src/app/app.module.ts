@@ -16,6 +16,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {SupplierDashboardComponent} from './module/supplier/components/supplier-dashboard/supplier-dashboard.component';
 import {ProductModule} from './module/product/product.module';
 import {SupplierModule} from './module/supplier/supplier.module';
+import { LoginComponent } from './login/login.component';
+import {SharedModuleModule} from './shared-module/shared-module.module';
 
 const routes: Routes = [
   {path: '', redirectTo: 'products', pathMatch: 'full'},
@@ -25,15 +27,15 @@ const routes: Routes = [
     AppComponent,
     MenuComponent,
     NocarriagePipe,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpClientModule,
-    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     ProductModule,
-    SupplierModule
+    SupplierModule,
+    SharedModuleModule
   ],
   providers: [ { provide: LOCALE_ID, useValue: 'fr-Fr' } ],
   bootstrap: [AppComponent]

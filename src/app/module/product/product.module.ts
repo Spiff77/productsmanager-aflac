@@ -8,6 +8,7 @@ import {ProductComponent} from './components/product/product.component';
 import {ProductRouterModule} from './product-router.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ThemeDirective} from './directive/theme.directive';
+import {SharedModuleModule} from '../../shared-module/shared-module.module';
 
 @NgModule({
   declarations: [
@@ -19,10 +20,8 @@ import {ThemeDirective} from './directive/theme.directive';
     ThemeDirective
   ],
   imports: [
-    CommonModule,
+    SharedModuleModule,
     ProductRouterModule,
-    FormsModule,
-    ReactiveFormsModule
   ]
 })
 export class ProductModule { }

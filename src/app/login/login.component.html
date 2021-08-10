@@ -1,0 +1,17 @@
+
+<div *ngIf="userLogged">
+  You are connected as {{userLogged.username}} <button (click)="logout()">Logout</button>
+</div>
+<div *ngIf="!userLogged">
+  <form [formGroup]="logingform" (ngSubmit)="login()">
+    <div>
+      <label for="username">Username</label>
+      <input type="text" id="username" formControlName="username">
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="text" id="password" formControlName="password">
+    </div>
+    <button>OK</button>
+  </form>
+</div>
