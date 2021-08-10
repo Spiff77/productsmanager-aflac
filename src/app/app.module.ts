@@ -11,13 +11,14 @@ import { SupplierComponent } from './module/supplier/components/supplier/supplie
 import { AnonymizePipe } from './module/supplier/pipes/anonymize.pipe';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ThemeDirective } from './module/product/directive/theme.directive';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
 import {SupplierDashboardComponent} from './module/supplier/components/supplier-dashboard/supplier-dashboard.component';
 import {ProductModule} from './module/product/product.module';
 import {SupplierModule} from './module/supplier/supplier.module';
 import { LoginComponent } from './login/login.component';
 import {SharedModuleModule} from './shared-module/shared-module.module';
+import {JwtInterceptor} from './jwt.interceptor';
 
 const routes: Routes = [
   {path: '', redirectTo: 'products', pathMatch: 'full'},
@@ -37,7 +38,7 @@ const routes: Routes = [
     SupplierModule,
     SharedModuleModule
   ],
-  providers: [ { provide: LOCALE_ID, useValue: 'fr-Fr' } ],
+  providers: [ {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true} ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,7 +1,7 @@
 <ul>
   <li><a href="#">Home</a></li>
   <li><a routerLink="products">Products</a></li>
-  <li><a [routerLink]="['/products','add']">Add product</a></li>
+  <li *ngIf="authService.currentUserValue"><a [routerLink]="['/products','add']">Add product</a></li>
   <li><a routerLink="suppliers">Suppliers</a></li>
   <li><a href="#">Blog</a></li>
 </ul>

@@ -5,11 +5,12 @@ import {ProductDashboardComponent} from './components/product-dashboard/product-
 import {ProductListComponent} from './components/product-list/product-list.component';
 import {ProdutFormAddComponent} from './components/produt-form-add/produt-form-add.component';
 import {ProductDetailComponent} from './components/product-detail/product-detail.component';
+import {AuthGuard} from '../../auth.guard';
 
 const routes: Routes = [
   {path: 'products', component: ProductDashboardComponent, children: [
       {path: '', component: ProductListComponent},
-      {path: 'add', component: ProdutFormAddComponent},
+      {path: 'add', component: ProdutFormAddComponent, canActivate: [AuthGuard]},
       {path: ':id', component: ProductDetailComponent},
     ]}];
 

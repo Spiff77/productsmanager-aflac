@@ -32,6 +32,7 @@ export class AuthService {
           const u = new User();
           u.assignData(JSON.parse(jsonPayload) as User);
           u.token = payload.jwt;
+          localStorage.setItem('currentUser', JSON.stringify(u))
           this.currentUserSubject.next(u);
           return u;
         })
